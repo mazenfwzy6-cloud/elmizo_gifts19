@@ -7,66 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800;900&family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet">
     <style>
 
-        /* شريط الحالة الحية المتحرك أسفل الشاشة أثناء السكرول */
-        .live-status-dock {
-            position: fixed;
-            bottom: 18px;
-            right: 18px;
-            z-index: 920;
-            background: rgba(13, 10, 26, 0.92);
-            backdrop-filter: blur(16px);
-            border: 1.5px solid rgba(56, 189, 248, 0.45);
-            border-radius: 18px;
-            padding: 10px 16px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            max-width: min(520px, calc(100vw - 175px));
-            box-shadow: 0 16px 42px rgba(0, 0, 0, 0.72), 0 0 24px rgba(225, 29, 98, 0.22);
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-        .live-status-dock:hover {
-            transform: translateY(-3px);
-            border-color: var(--primary-glow);
-        }
-        .dock-pulse-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: #34d399;
-            box-shadow: 0 0 12px #34d399;
-            flex-shrink: 0;
-            animation: blinkDot 1.4s infinite;
-        }
-        .dock-text-wrap {
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            font-size: 13px;
-            font-weight: 800;
-            color: #f8fafc;
-        }
-        .dock-text-wrap span {
-            color: var(--accent-gold);
-        }
-        .dock-mini-btn {
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.16);
-            color: #fff;
-            border-radius: 10px;
-            padding: 5px 10px;
-            font-size: 11.5px;
-            font-weight: 800;
-            cursor: pointer;
-            flex-shrink: 0;
-            transition: 0.2s;
-        }
-        .dock-mini-btn:hover {
-            background: var(--primary-glow);
-            border-color: transparent;
-        }
-
-        /* شريط عرض مباشر لتجارب حية وتفاعلات العملاء (Social Proof / Live Showcase Strip) */
+/* شريط عرض مباشر لتجارب حية وتفاعلات العملاء (Social Proof / Live Showcase Strip) */
         .showcase-proof-bar {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -115,20 +56,7 @@
                 grid-template-columns: repeat(3, 1fr);
             }
         }
-        @media (max-width: 720px) {
-            .live-status-dock {
-                bottom: 72px;
-                right: 12px;
-                left: 12px;
-                max-width: none;
-            }
-            .floating-wa-btn {
-                bottom: 14px;
-                left: 12px;
-                right: 12px;
-                justify-content: center;
-            }
-        }
+
 
 
         /* شريط التقدم العلوي أثناء القراءة */
@@ -359,18 +287,18 @@
             .customizer-grid { grid-template-columns: 1fr; }
         }
 
-        :root {
-            --bg-dark: #07060f;
-            --bg-card: #100e20;
-            --bg-card-hover: #17142e;
+                :root {
+            --bg-dark: #0b060a;
+            --bg-card: #160c13;
+            --bg-card-hover: #21111d;
             --primary: #9e1b44;
             --primary-glow: #e11d62;
-            --accent-blue: #38bdf8;
-            --accent-gold: #fbbf24;
-            --accent-purple: #8b5cf6;
-            --text-main: #f8fafc;
-            --text-muted: #94a3b8;
-            --border-color: rgba(255, 255, 255, 0.09);
+            --accent-blue: #f9a8d4;
+            --accent-gold: #f5c27a;
+            --accent-purple: #fda4af;
+            --text-main: #fff8fa;
+            --text-muted: #d4b2be;
+            --border-color: rgba(245, 194, 122, 0.22);
         }
 
         * {
@@ -1051,7 +979,7 @@
             border-color: #25D366;
         }
 
-        /* نافذة المعاينة الحية (تدعم 10 مشاهد: سواء سلايدر أو سكرول طولي تفاعلي + قفل باسورد) */
+        /* نافذة المعاينة الحية (تدعم أجزاء تفاعلية مخصصة: سواء سلايدر أو سكرول طولي تفاعلي + قفل باسورد) */
         .modal-overlay {
             position: fixed;
             inset: 0;
@@ -1383,23 +1311,277 @@
             .hero-actions, .hero-stats { justify-content: center; }
             .nav-links { display: none; }
         }
+    
+        /* --- تنسيق متجاوب مريح ومرتب للموبايل والتابلت واللابتوب --- */
+        @media (max-width: 880px) {
+            .nav-container {
+                padding: 11px 16px;
+            }
+            .nickname-badge {
+                font-size: 19px;
+                padding: 5px 14px;
+            }
+            .social-icon-btn {
+                width: 36px;
+                height: 36px;
+                border-radius: 11px;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 28px 18px 22px;
+                gap: 24px;
+            }
+            .hero-tag {
+                font-size: 11.5px;
+                padding: 5px 12px;
+            }
+            .hero-name {
+                font-size: 28px;
+                line-height: 1.15;
+            }
+            .hero-typing-line {
+                font-size: 15px;
+                min-height: 28px;
+            }
+            .hero-bio-ar {
+                font-size: 14px;
+                line-height: 1.8;
+                max-width: 560px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-bio-en {
+                font-size: 12.5px;
+                padding: 10px 14px;
+                text-align: center;
+                border-left: none;
+                border-top: 3px solid var(--primary-glow);
+                border-radius: 12px;
+                max-width: 560px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .hero-stats {
+                display: grid;
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+                gap: 10px;
+                max-width: 440px;
+                margin: 0 auto 20px;
+            }
+            .stat-chip {
+                padding: 10px 12px;
+                border-radius: 13px;
+            }
+            .stat-chip strong {
+                font-size: 16px;
+            }
+            .stat-chip span {
+                font-size: 11.5px;
+            }
+            .hero-actions {
+                justify-content: center;
+                gap: 10px;
+            }
+            .btn-primary, .btn-outline {
+                padding: 11px 18px;
+                font-size: 13.5px;
+                border-radius: 12px;
+            }
+            .photo-frame {
+                max-width: 280px;
+                padding: 6px;
+                border-radius: 22px;
+                animation: none;
+            }
+            .photo-frame img {
+                height: 290px;
+                border-radius: 17px;
+            }
+            .floating-pill {
+                bottom: -10px;
+                right: 10px;
+                padding: 6px 12px;
+                font-size: 11.5px;
+                border-radius: 12px;
+            }
+
+            section {
+                padding: 36px 16px;
+            }
+            .section-title {
+                font-size: 24px;
+            }
+            .section-lead {
+                font-size: 14px;
+                line-height: 1.8;
+            }
+            .persuasion-box,
+            .invites-highlight,
+            .customizer-box,
+            .contact-box {
+                padding: 24px 16px;
+                border-radius: 22px;
+            }
+            .demos-grid {
+                grid-template-columns: 1fr;
+                gap: 18px;
+            }
+            .floating-wa-btn {
+                bottom: 14px;
+                left: 14px;
+                right: auto;
+                width: auto;
+                padding: 10px 15px;
+                font-size: 12.5px;
+                border-radius: 999px;
+            }
+        }
+    
+        /* مؤثرات متحركة رومانسية (قلوب وبتلات طافية ناعمة) */
+        .romantic-fx-layer {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 2;
+            overflow: hidden;
+        }
+        .romantic-petal {
+            position: absolute;
+            top: -32px;
+            font-size: 16px;
+            opacity: 0.72;
+            filter: drop-shadow(0 0 8px rgba(225, 29, 98, 0.35));
+            animation: fallRomantic linear infinite;
+        }
+        @keyframes fallRomantic {
+            0% {
+                transform: translateY(-30px) translateX(0) rotate(0deg) scale(0.9);
+                opacity: 0;
+            }
+            15% { opacity: 0.78; }
+            50% {
+                transform: translateY(50vh) translateX(22px) rotate(140deg) scale(1.05);
+                opacity: 0.68;
+            }
+            85% { opacity: 0.55; }
+            100% {
+                transform: translateY(105vh) translateX(-18px) rotate(280deg) scale(0.92);
+                opacity: 0;
+            }
+        }
+
+        /* مبدل ثيمات المعاينة الرومانسية */
+        .preview-theme-bar {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 14px;
+        }
+        .theme-chip-btn {
+            background: rgba(255, 248, 250, 0.06);
+            border: 1px solid rgba(245, 194, 122, 0.28);
+            color: #ffe4ec;
+            padding: 5px 12px;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: 0.25s;
+        }
+        .theme-chip-btn.active, .theme-chip-btn:hover {
+            background: linear-gradient(135deg, #9e1b44, #e11d62);
+            border-color: #f5c27a;
+            color: #fff;
+        }
+
+        /* مولّد QR Code حي جوه حاسبة الطلب */
+        .qr-preview-card {
+            margin-top: 14px;
+            background: rgba(255, 248, 250, 0.04);
+            border: 1px solid rgba(245, 194, 122, 0.28);
+            border-radius: 16px;
+            padding: 14px;
+            text-align: center;
+        }
+        .qr-canvas-wrap {
+            display: inline-flex;
+            padding: 10px;
+            border-radius: 14px;
+            background: #fff8fa;
+            box-shadow: 0 10px 28px rgba(225, 29, 98, 0.25);
+            margin: 8px auto;
+        }
+        .qr-caption {
+            font-size: 12px;
+            color: #f5c27a;
+            font-weight: 800;
+        }
+
+        /* محاكاة مشهد شات أو بطاقة دعوة تفاعلية داخل المعاينة */
+        .interactive-scene-box {
+            margin: 14px auto 0;
+            max-width: 540px;
+            background: rgba(255, 248, 250, 0.05);
+            border: 1px solid rgba(249, 168, 212, 0.28);
+            border-radius: 18px;
+            padding: 14px 16px;
+            text-align: right;
+        }
+        .scene-chat-bubble {
+            background: linear-gradient(135deg, rgba(225, 29, 98, 0.26), rgba(158, 27, 68, 0.2));
+            border: 1px solid rgba(249, 168, 212, 0.3);
+            border-radius: 14px 14px 4px 14px;
+            padding: 10px 13px;
+            font-size: 13.5px;
+            color: #fff8fa;
+            margin-bottom: 8px;
+        }
+        .scene-chat-reply {
+            background: rgba(245, 194, 122, 0.14);
+            border: 1px solid rgba(245, 194, 122, 0.3);
+            border-radius: 14px 14px 14px 4px;
+            padding: 9px 13px;
+            font-size: 13px;
+            color: #fde68a;
+        }
+        .rsvp-action-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin-top: 10px;
+        }
+        .rsvp-pill-btn {
+            background: rgba(245, 194, 122, 0.15);
+            border: 1px solid rgba(245, 194, 122, 0.45);
+            color: #fff8fa;
+            padding: 6px 12px;
+            border-radius: 10px;
+            font-size: 12px;
+            font-weight: 800;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .rsvp-pill-btn:hover, .rsvp-pill-btn.chosen {
+            background: #e11d62;
+            border-color: #e11d62;
+        }
+
     </style>
 </head>
 <body>
+    <div class="romantic-fx-layer" id="romanticFxLayer" aria-hidden="true"></div>
+
 
     
     <div class="scroll-progress-bar" id="scrollProgressBar"></div>
 
-    <div class="live-status-dock" id="liveStatusDock">
-        <span class="dock-pulse-dot"></span>
-        <div class="dock-text-wrap" id="dockStatusText">
-            <span>EL_Mizo Studio:</span> مصمم دعوات أفراح وخطوبة إلكترونية ذكية بدل الكروت الورقية 💍
-        </div>
-        <button type="button" class="dock-mini-btn" id="dockAudioBtn" onclick="toggleAmbienceMusic()">🎶 صوت</button>
-    </div>
-
     <a href="https://wa.me/201020477993?text=%D8%A3%D9%87%D9%84%D8%A7%D9%8B%20%D9%8A%D8%A7%20%D9%85%D8%A7%D8%B2%D9%86%D8%8C%20%D8%B9%D8%A7%D9%8A%D8%B2%20%D8%A3%D8%B3%D8%AA%D9%81%D8%B3%D8%B1%20%D8%B9%D9%86%20%D8%B9%D9%85%D9%84%20%D9%87%D8%AF%D9%8A%D8%A9%20%D8%A5%D9%84%D9%83%D8%AA%D8%B1%D9%88%D9%86%D9%8A%D8%A9%20%D8%A3%D9%88%20%D8%AF%D8%B9%D9%88%D8%A9!" target="_blank" rel="noopener noreferrer" class="floating-wa-btn">
-        <span>💬</span> اطلب عبر واتساب
+        <span>💬</span> واتساب
     </a>
 
     <div class="loader-screen" id="loaderScreen">
@@ -1425,7 +1607,7 @@
             <ul class="nav-links">
                 <li><a href="#home">الرئيسية</a></li>
                 <li><a href="#why-digital">ليه هدية إلكترونية؟</a></li>
-                <li><a href="#demos">الأفكار والمشاريع (12 فكرة × 10 مشاهد)</a></li>
+                <li><a href="#demos">المعارض والأفكار</a></li>
                 <li><a href="#wedding-invites">دعوات الأفراح والخطوبة</a></li>
                 <li><a href="#skills">المهارات</a></li>
                 <li><a href="#contact">اطلب دلوقتي</a></li>
@@ -1455,7 +1637,7 @@
             </div>
 
             <p class="hero-bio-ar">
-                أهلاً بيك! أنا <strong>مازن محمد فوزي (EL_Mizo)</strong>، طالب في مجال تكنولوجيا المعلومات (IT)، ومطور مواقع هدايا إلكترونية تفاعلية وأنظمة إنترنت الأشياء (IoT)، وبجيد <strong>اللغة الألمانية</strong>. بحوّل أي مناسبة أو ذكرى غالية لـ <strong>موقع إلكتروني مخصص بلينك و QR Code</strong>: قصص حب، ألبومات صحاب، أعياد ميلاد، دعوات أفراح وخطوبة بدل الكروت الورقية، ورسايل سرية مقفولة بباسورد!
+                أهلاً بيك! أنا <strong>مازن محمد فوزي (EL_Mizo)</strong>، بدرس تكنولوجيا المعلومات وبشتغل على تطوير مواقع الهدايا التفاعلية، الدعوات الإلكترونية، ومشاريع إنترنت الأشياء (IoT) مع إجادة <strong>اللغة الألمانية</strong>. بعملك موقع مخصص بلينك أو QR Code يناسب مناسبتك بوضوح وبساطة: ذكريات أصحاب أو كابلز، أعياد ميلاد، أو دعوات مناسبات.
             </p>
 
             <div class="hero-bio-en">
@@ -1464,7 +1646,7 @@
 
             <div class="hero-stats">
                 <div class="stat-chip"><strong>12+</strong><span>فكرة واستايل مختلف</span></div>
-                <div class="stat-chip"><strong>10 Slides</strong><span>قصة كاملة لكل هدية</span></div>
+                <div class="stat-chip"><strong>Custom Flow</strong><span>مقسمة حسب قصتك ومناسبتك</span></div>
                 <div class="stat-chip"><strong>QR + Link</strong><span>يفتح على أي موبايل</span></div>
                 <div class="stat-chip"><strong>🔒 Password</strong><span>حماية خصوصية للمفاجآت</span></div>
             </div>
@@ -1529,11 +1711,11 @@
         </div>
     </section>
 
-    <!-- قسم الأفكار والمشاريع التجريبية (12 فكرة × 10 مشاهد) -->
+    <!-- قسم الأفكار والمشاريع التجريبية (12 فكرة × أجزاء تفاعلية مخصصة) -->
     <section id="demos" class="reveal">
         <div class="section-head">
             <div class="section-sub">INTERACTIVE GIFT & INVITATION STUDIO</div>
-            <h2 class="section-title">كل الأفكار اللي نقدر ننفذها ليك (10 مشاهد لكل مشروع)</h2>
+            <h2 class="section-title">أفكار ومشاريع تفاعلية مصممة تخطف العين</h2>
             <p class="section-lead">
                 جمعنالك هنا كل المجالات والمناسبات اللي ينفع تتعمل كموقع تفاعلي: من <strong>الكابلز والخطوبة ودعوات الأفراح</strong>، لحد <strong>الأصحاب، أعياد الميلاد، العيلة، التخرج، والاعتذار</strong>. اضغط على أي مشروع عشان تجربه لايف!
             </p>
@@ -1621,10 +1803,10 @@
                     </div>
 
                     <div class="opt-group">
-                        <span class="opt-group-label">2. اختار طريقة العرض (10 مشاهد):</span>
+                        <span class="opt-group-label">2. اختار طريقة العرض (أجزاء تفاعلية مخصصة):</span>
                         <div class="opt-pills" id="styleGroup">
                             <button type="button" class="opt-pill selected" data-val="سكرول طولي بالصور والحكاية 📜" onclick="selectOpt('styleGroup', this)">سكرول طولي بالصور والحكاية 📜</button>
-                            <button type="button" class="opt-pill" data-val="سلايدر تفاعلي 10 مشاهد ✨" onclick="selectOpt('styleGroup', this)">سلايدر تفاعلي 10 مشاهد ✨</button>
+                            <button type="button" class="opt-pill" data-val="سلايدر تفاعلي أجزاء تفاعلية مخصصة ✨" onclick="selectOpt('styleGroup', this)">سلايدر تفاعلي أجزاء تفاعلية مخصصة ✨</button>
                             <button type="button" class="opt-pill" data-val="شريط كاسيت أغاني 📼" onclick="selectOpt('styleGroup', this)">شريط كاسيت أغاني 📼</button>
                         </div>
                     </div>
@@ -1648,6 +1830,14 @@
                         <div><span>الإضافات:</span><strong id="sumExtras" style="max-width:65%; text-align:left;">قفل بباسورد سري 🔒، موسيقى وأغاني خلفية 🎶</strong></div>
                         <div><span>النتيجة النهائية:</span><strong style="color:#34d399;">مخصصة 100% بصورك وتفاصيلك ✨</strong></div>
                     </div>
+                                        <div class="qr-preview-card">
+                        <div class="qr-caption">📲 معاينة QR Code فورية لهديتك أو دعوتك</div>
+                        <div class="qr-canvas-wrap">
+                            <canvas id="liveQrCanvas" width="116" height="116"></canvas>
+                        </div>
+                        <div style="font-size:11.5px; color:#d4b2be;">يتحدث تلقائياً حسب اختياراتك للطباعة على كارت أو بوكس</div>
+                    </div>
+
                     <a id="customWaLink" href="#" target="_blank" rel="noopener noreferrer" class="btn-primary" style="width:100%; justify-content:center;">
                         إرسال الملخص لمازن على واتساب 🚀
                     </a>
@@ -1836,7 +2026,7 @@
         Designed & Built by <strong>EL_Mizo</strong> — Mazen Mohammed Fawzy © 2026
     </footer>
 
-    <!-- نافذة المعاينة الحية التفاعلية (10 مشاهد لكل مشروع + دعم الباسورد + سكرول طولي أو سلايدر) -->
+    <!-- نافذة المعاينة الحية التفاعلية (أجزاء تفاعلية مخصصة لكل مشروع + دعم الباسورد + سكرول طولي أو سلايدر) -->
     <div class="modal-overlay" id="demoModal" onclick="closeModalOnBg(event)">
         <div class="modal-shell" id="modalShell">
             <div class="modal-topbar">
@@ -1926,14 +2116,14 @@
         }, { threshold: 0.08 });
         document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-        /* 5. قاعدة بيانات الـ 12 مشروع (كل مشروع 10 سلايدات/مشاهد كاملة + تنوع بين السكرول الطولي والسلايدر + باسورد سري) */
+        /* 5. قاعدة بيانات الـ 12 مشروع (كل مشروع أجزاء تفاعلية مخصصةات/مشاهد كاملة + تنوع بين السكرول الطولي والسلايدر + باسورد سري) */
         const demoProjects = [
             {
                 id: 1,
                 category: "couples",
                 catLabel: "💑 للكابلز والحب",
                 viewMode: "vertical",
-                viewBadge: "📜 قصة طولية (10 مشاهد بالصور)",
+                viewBadge: "📜 قصة طولية بالصور والحكاية",
                 password: null,
                 title: "قصتنا بالصور والحكاية (عمر & سلمى)",
                 idea: "صفحة طويلة بتنزل فيها بالسكرول كأنك بتقرأ رواية مصورة عنكم: أول لقاء، أول شات، صوركم، مواقفكم، وعدّاد زمني لايف بيعد كل ثانية بينكم.",
@@ -1941,7 +2131,7 @@
                 accent: "#ff5d8f",
                 counterDate: "2025-05-14T00:00:00",
                 counterLabel: "منذ 14 مايو 2025 — حكاية عمر وسلمى ❤️",
-                coverSvg: `<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="200" fill="#180a24"/><circle cx="152" cy="92" r="24" fill="#ffe0c8"/><path d="M126 88 Q152 56 178 88 Z" fill="#171129"/><circle cx="248" cy="92" r="24" fill="#ffeadb"/><path d="M222 88 Q248 54 274 88 L278 142 L218 142 Z" fill="#5b288c"/><text x="200" y="54" text-anchor="middle" font-size="24">💖</text><rect x="95" y="154" width="210" height="26" rx="13" fill="rgba(255,93,143,0.2)" stroke="#ff5d8f"/><text x="200" y="171" text-anchor="middle" fill="#ffd6e7" font-size="11" font-weight="800">10 SCENES • VERTICAL LOVE STORY</text></svg>`,
+                coverSvg: `<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="200" fill="#180a24"/><circle cx="152" cy="92" r="24" fill="#ffe0c8"/><path d="M126 88 Q152 56 178 88 Z" fill="#171129"/><circle cx="248" cy="92" r="24" fill="#ffeadb"/><path d="M222 88 Q248 54 274 88 L278 142 L218 142 Z" fill="#5b288c"/><text x="200" y="54" text-anchor="middle" font-size="24">💖</text><rect x="95" y="154" width="210" height="26" rx="13" fill="rgba(255,93,143,0.2)" stroke="#ff5d8f"/><text x="200" y="171" text-anchor="middle" fill="#ffd6e7" font-size="11" font-weight="800">INTERACTIVE VERTICAL STORY</text></svg>`,
                 slides: [
                     { title: "01 • البداية — صدفة 14 مايو 2025", text: "وسط زحمة اليوم، صدفة واحدة جمعت بين عمر وسلمى ومن اللحظة دي كل حاجة اتغيرت.", icon: "🌸✨" },
                     { title: "02 • أول نظرة وابتسامة", text: "لما العين جت في العين، كان واضح إن دي مش مجرد معرفة عابرة.. دي بداية حكاية.", icon: "👀💫" },
@@ -1960,7 +2150,7 @@
                 category: "couples",
                 catLabel: "💑 للكابلز والحب",
                 viewMode: "slider",
-                viewBadge: "🔒 مقفول بباسورد + 10 سلايد",
+                viewBadge: "🔒 محمي بباسورد + عرض تفاعلي",
                 password: "2025",
                 passHint: "جرّب الباسورد التجريبي: 2025 (عند التنفيذ بنحط تاريخكم أو كلمة سركم)",
                 title: "خزنة الأسرار والذكريات (مقفول بباسورد 🔒)",
@@ -1969,7 +2159,7 @@
                 accent: "#fb7185",
                 counterDate: "2025-02-14T00:00:00",
                 counterLabel: "خزنة سرية منذ 14 فبراير 2025 🔐",
-                coverSvg: `<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="200" fill="#1d0914"/><rect x="115" y="42" width="170" height="115" rx="16" fill="#361024" stroke="#fb7185" stroke-width="2"/><circle cx="200" cy="96" r="24" fill="#fb7185"/><text x="200" y="104" text-anchor="middle" font-size="22">🔐</text><text x="200" y="142" text-anchor="middle" fill="#ffe4e6" font-size="11.5" font-weight="800">PASSWORD PROTECTED • 10 SLIDES</text></svg>`,
+                coverSvg: `<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="200" fill="#1d0914"/><rect x="115" y="42" width="170" height="115" rx="16" fill="#361024" stroke="#fb7185" stroke-width="2"/><circle cx="200" cy="96" r="24" fill="#fb7185"/><text x="200" y="104" text-anchor="middle" font-size="22">🔐</text><text x="200" y="142" text-anchor="middle" fill="#ffe4e6" font-size="11.5" font-weight="800">PASSWORD PROTECTED VAULT</text></svg>`,
                 slides: [
                     { title: "01 • أهلاً بيك جوه خزنتنا السرية", text: "طالما وصلت هنا وكتبت الباسورد صح، يبقى المكان ده معمول عشانك إنت وبس.", icon: "🔓❤️" },
                     { title: "02 • ليه اخترتك إنت بالذات؟", text: "عشان معاك حسيت بالأمان والراحة اللي كنت بدور عليهم من زمان.", icon: "✨🫶" },
@@ -2015,7 +2205,7 @@
                 category: "friends",
                 catLabel: "👯 للأصدقاء والشلة",
                 viewMode: "vertical",
-                viewBadge: "📜 ألبوم طولي بالصور (10 مشاهد)",
+                viewBadge: "📜 ألبوم طولي بالصور والمواقف",
                 password: null,
                 title: "ألبوم البيست فريند وشلة العمر (Friends Vault)",
                 idea: "هدية لصاحبك أو صاحبتك الانتيم فيها صوركم، أطرف المواقف، أسرار الشلة، وعدّاد بيحسب بقالكم كام سنة صحاب.",
@@ -2023,7 +2213,7 @@
                 accent: "#38bdf8",
                 counterDate: "2023-09-25T00:00:00",
                 counterLabel: "صحاب بجد منذ 25 سبتمبر 2023 🤝",
-                coverSvg: `<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="200" fill="#091929"/><circle cx="132" cy="88" r="24" fill="#142d47" stroke="#fde047" stroke-width="2"/><text x="132" y="95" text-anchor="middle" font-size="22">😎</text><circle cx="200" cy="78" r="27" fill="#142d47" stroke="#38bdf8" stroke-width="2.5"/><text x="200" y="86" text-anchor="middle" font-size="25">🤩</text><circle cx="268" cy="88" r="24" fill="#142d47" stroke="#fb7185" stroke-width="2"/><text x="268" y="95" text-anchor="middle" font-size="22">🤙</text><text x="200" y="153" text-anchor="middle" fill="#e0f2fe" font-size="12" font-weight="900">BEST FRIENDS • 10 MEMORIES</text></svg>`,
+                coverSvg: `<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="200" fill="#091929"/><circle cx="132" cy="88" r="24" fill="#142d47" stroke="#fde047" stroke-width="2"/><text x="132" y="95" text-anchor="middle" font-size="22">😎</text><circle cx="200" cy="78" r="27" fill="#142d47" stroke="#38bdf8" stroke-width="2.5"/><text x="200" y="86" text-anchor="middle" font-size="25">🤩</text><circle cx="268" cy="88" r="24" fill="#142d47" stroke="#fb7185" stroke-width="2"/><text x="268" y="95" text-anchor="middle" font-size="22">🤙</text><text x="200" y="153" text-anchor="middle" fill="#e0f2fe" font-size="12" font-weight="900">BEST FRIENDS STORYBOOK</text></svg>`,
                 slides: [
                     { title: "01 • إزاي اتعرفنا على بعض؟", text: "من أول يوم اتكلمنا فيه وإحنا فاهمين بعض من نظرة واحدة!", icon: "👋😎" },
                     { title: "02 • أجدع صاحب في المواقف الصعبة", text: "وقت الجد بتكون أول واحد واقف في ضهري من غير ما أطلب.", icon: "🛡️🤝" },
@@ -2042,7 +2232,7 @@
                 category: "birthday",
                 catLabel: "🎂 أعياد ميلاد",
                 viewMode: "slider",
-                viewBadge: "🎂 10 سلايد تفاعلي + أمنيات",
+                viewBadge: "🎂 تفاعلي + أمنيات وذكريات",
                 password: null,
                 title: "مفاجأة عيد ميلاد تفاعلية (Happy Birthday)",
                 idea: "بدل بوست تقليدي على فيسبوك: ابعتله موقع عيد ميلاد باسمه، تورتة، أمنيات من صحابه، صور من طفولته لحد النهاردة، وعدّاد عمره بالثانية!",
@@ -2050,7 +2240,7 @@
                 accent: "#f472b6",
                 counterDate: "2006-08-12T00:00:00",
                 counterLabel: "منور الدنيا منذ 12 أغسطس 2006 🎂",
-                coverSvg: `<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="200" fill="#220a1e"/><rect x="130" y="102" width="140" height="48" rx="12" fill="#ec4899"/><rect x="152" y="74" width="96" height="32" rx="10" fill="#f9a8d4"/><rect x="196" y="46" width="8" height="28" rx="3" fill="#fef08a"/><ellipse cx="200" cy="39" rx="7" ry="10" fill="#fb923c"/><text x="200" y="182" text-anchor="middle" fill="#fce7f3" font-size="12" font-weight="900">BIRTHDAY SURPRISE • 10 SLIDES 🎂</text></svg>`,
+                coverSvg: `<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="200" fill="#220a1e"/><rect x="130" y="102" width="140" height="48" rx="12" fill="#ec4899"/><rect x="152" y="74" width="96" height="32" rx="10" fill="#f9a8d4"/><rect x="196" y="46" width="8" height="28" rx="3" fill="#fef08a"/><ellipse cx="200" cy="39" rx="7" ry="10" fill="#fb923c"/><text x="200" y="182" text-anchor="middle" fill="#fce7f3" font-size="12" font-weight="900">BIRTHDAY SURPRISE EXPERIENCE 🎂</text></svg>`,
                 slides: [
                     { title: "01 • كل سنة وإنت طيب يا نجم اليوم! 🎉", text: "النهاردة مش يوم عادي في السنة.. ده اليوم اللي الدنيا نورت بوجودك.", icon: "🎊🎂" },
                     { title: "02 • عداد عمرك باليوم والساعة والثانية", text: "شوف إنت منور حياتنا بقالك قد إيه بالظبط!", icon: "⏱️🌟", showCounter: true },
@@ -2069,7 +2259,7 @@
                 category: "family",
                 catLabel: "🏡 للعيلة والأم والأب",
                 viewMode: "vertical",
-                viewBadge: "📜 رسالة تقدير طولية (10 مشاهد)",
+                viewBadge: "📜 رسالة تقدير وامتنان طولية",
                 password: null,
                 title: "هدية لست الحبايب أو الأب أو الأخوات 🏡❤️",
                 idea: "لفتة إنسانية راقية في عيد الأم، عيد ميلاد بابا، أو شكر لأخوك/أختك؛ فيها صور العيلة، دعوات، وكلام تقدير عمرهم ما هينسوه.",
@@ -2096,7 +2286,7 @@
                 category: "special",
                 catLabel: "🎓 تخرج واعتذار ومناسبات",
                 viewMode: "vertical",
-                viewBadge: "📜 توثيق التخرج (10 مشاهد)",
+                viewBadge: "📜 توثيق رحلة التخرج والنجاح",
                 password: null,
                 title: "توثيق رحلة التخرج والنجاح (Graduation 2026)",
                 idea: "احفظ تعب سنين الكلية أو الثانوية في موقع تفاعلي: من أول يوم دراسة، مشاريع، صحاب الدفعة، لحد صورة الروب والقبعة!",
@@ -2104,7 +2294,7 @@
                 accent: "#34d399",
                 counterDate: "2026-07-01T00:00:00",
                 counterLabel: "خريجين رسمياً منذ 1 يوليو 2026 🎓",
-                coverSvg: `<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="200" fill="#091920"/><polygon points="200,48 286,82 200,116 114,82" fill="#34d399"/><rect x="156" y="104" width="88" height="26" rx="6" fill="#059669"/><text x="200" y="164" text-anchor="middle" fill="#a7f3d0" font-size="12" font-weight="900">GRADUATION JOURNEY • 10 SCENES</text></svg>`,
+                coverSvg: `<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="200" fill="#091920"/><polygon points="200,48 286,82 200,116 114,82" fill="#34d399"/><rect x="156" y="104" width="88" height="26" rx="6" fill="#059669"/><text x="200" y="164" text-anchor="middle" fill="#a7f3d0" font-size="12" font-weight="900">GRADUATION JOURNEY ARCHIVE</text></svg>`,
                 slides: [
                     { title: "01 • البداية — أول يوم في الجامعة", text: "حلم كبير بدأ بخطوة، وفضول نعرف المستقبل مخبيلنا إيه.", icon: "🏫✨" },
                     { title: "02 • ليالي السهر والمذاكرة", text: "القهوة، المشاريع، والامتحانات اللي علمتنا الصبر والإصرار.", icon: "💻☕" },
@@ -2132,7 +2322,7 @@
                 accent: "#a78bfa",
                 counterDate: "2025-10-10T00:00:00",
                 counterLabel: "غلاوتك أكبر من أي زعل 🤍",
-                coverSvg: `<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="200" fill="#131024"/><text x="200" y="96" text-anchor="middle" font-size="48">🤍🕊️🔐</text><text x="200" y="152" text-anchor="middle" fill="#ddd6fe" font-size="12" font-weight="900">APOLOGY & PEACE SITE • 10 SLIDES</text></svg>`,
+                coverSvg: `<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="200" fill="#131024"/><text x="200" y="96" text-anchor="middle" font-size="48">🤍🕊️🔐</text><text x="200" y="152" text-anchor="middle" fill="#ddd6fe" font-size="12" font-weight="900">APOLOGY & PEACE EXPERIENCE</text></svg>`,
                 slides: [
                     { title: "01 • عارف إني زعلتك..", text: "وعشان إنت غالي عندي وميهونش عليا زعلك، عملتلك الصفحة دي مخصوص.", icon: "🤍🕊️" },
                     { title: "02 • مفيش حاجة في الدنيا تستاهل زعلنا", text: "لحظة سوء تفاهم متقدرش تمحي كل الأيام الحلوة اللي بينا.", icon: "🌧️🌤️" },
@@ -2151,7 +2341,7 @@
                 category: "couples",
                 catLabel: "💑 للكابلز والحب",
                 viewMode: "slider",
-                viewBadge: "📼 كاسيت كلاسيك (10 تراكات)",
+                viewBadge: "📼 كاسيت كلاسيك بالأغاني والذكريات",
                 password: null,
                 title: "شريط كاسيت الذكريات والأغاني (Retro Cassette)",
                 idea: "تصميم شريط كاسيت كلاسيكي ببكرات بتلف: كل سلايد عبارة عن «تراك أغنية» مرتبط بموقف أو تاريخ في قصتكم!",
@@ -2159,7 +2349,7 @@
                 accent: "#f59e0b",
                 counterDate: "2024-11-20T00:00:00",
                 counterLabel: "Side A Forever — منذ 20 نوفمبر 2024 📼",
-                coverSvg: `<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="200" fill="#1a0f0a"/><rect x="68" y="30" width="264" height="140" rx="18" fill="#2b1911" stroke="#f59e0b" stroke-width="2.5"/><circle cx="145" cy="82" r="20" fill="#2b1911" stroke="#fbbf24" stroke-width="3" stroke-dasharray="5,4"/><circle cx="255" cy="82" r="20" fill="#2b1911" stroke="#fbbf24" stroke-width="3" stroke-dasharray="5,4"/><text x="200" y="144" text-anchor="middle" fill="#fde68a" font-size="11.5" font-weight="800">10 TRACKS • RETRO CASSETTE</text></svg>`,
+                coverSvg: `<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="200" fill="#1a0f0a"/><rect x="68" y="30" width="264" height="140" rx="18" fill="#2b1911" stroke="#f59e0b" stroke-width="2.5"/><circle cx="145" cy="82" r="20" fill="#2b1911" stroke="#fbbf24" stroke-width="3" stroke-dasharray="5,4"/><circle cx="255" cy="82" r="20" fill="#2b1911" stroke="#fbbf24" stroke-width="3" stroke-dasharray="5,4"/><text x="200" y="144" text-anchor="middle" fill="#fde68a" font-size="11.5" font-weight="800">RETRO CASSETTE • MUSIC & STORY</text></svg>`,
                 slides: [
                     { title: "Track 01 • مقدمة الشريط (20/11/2024)", text: "شريط متسجل عليه أجمل أغانينا وذكرياتنا بصوت القلب.", icon: "📼🎶" },
                     { title: "Track 02 • أغنية أول نظرة", text: "اللحن اللي بيشتغل في دماغي أول ما بشوفك.", icon: "🎵👀" },
@@ -2178,7 +2368,7 @@
                 category: "friends",
                 catLabel: "👯 للأصدقاء والشلة",
                 viewMode: "vertical",
-                viewBadge: "📜 خريطة السفر والرحلات (10 محطات)",
+                viewBadge: "📜 خريطة رحلات وسفريات بالصور",
                 password: null,
                 title: "خريطة رحلاتنا وسفرياتنا (Travel & Coastal Log)",
                 idea: "لو طلعتوا مصيف، رحلة دهب، أو خروجة في إسكندرية: بنوثق الرحلة محطة بمحطة بالصور والتواريخ على خريطة تفاعلية!",
@@ -2186,7 +2376,7 @@
                 accent: "#22d3ee",
                 counterDate: "2025-08-10T00:00:00",
                 counterLabel: "منذ رحلتنا سوا — 10 أغسطس 2025 🌊",
-                coverSvg: `<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="200" fill="#081b29"/><path d="M65 142 Q150 58 220 112 T340 62" stroke="#22d3ee" stroke-width="4" fill="none" stroke-dasharray="8,6"/><circle cx="65" cy="142" r="8" fill="#fb7185"/><circle cx="340" cy="62" r="9" fill="#34d399"/><text x="200" y="180" text-anchor="middle" fill="#cffafe" font-size="12" font-weight="900">TRAVEL MAP • 10 STOPS 🌊</text></svg>`,
+                coverSvg: `<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="200" fill="#081b29"/><path d="M65 142 Q150 58 220 112 T340 62" stroke="#22d3ee" stroke-width="4" fill="none" stroke-dasharray="8,6"/><circle cx="65" cy="142" r="8" fill="#fb7185"/><circle cx="340" cy="62" r="9" fill="#34d399"/><text x="200" y="180" text-anchor="middle" fill="#cffafe" font-size="12" font-weight="900">TRAVEL & COASTAL LOG 🌊</text></svg>`,
                 slides: [
                     { title: "01 • نقطة الانطلاق والتجمع", text: "شنط السفر، الحماس، وأول صورة قبل ما نتحرك.", icon: "🎒🚌" },
                     { title: "02 • أغاني الطريق والضحك", text: "أحلى جزء في أي سفرة هو الطريق نفسه مع الصحبة الحلوة.", icon: "🎶🛣️" },
@@ -2205,14 +2395,14 @@
                 category: "couples",
                 catLabel: "💑 للكابلز والحب",
                 viewMode: "vertical",
-                viewBadge: "📜 حائط صور بولارويد (10 صور)",
+                viewBadge: "📜 حائط صور بولارويد بتفاصيلها",
                 password: null,
                 title: "حائط صور البولارويد الفورية (Polaroid Wall)",
                 idea: "ألبوم صور تفاعلي مصمم على شكل صور كاميرا فورية (Polaroid) متعلقة، تحت كل صورة تاريخها وحكايتها بخط اليد.",
                 themeBg: "linear-gradient(160deg, #1b1929, #0c0b14)",
                 accent: "#c084fc",
                 counterDate: "2025-03-01T00:00:00",
-                counterLabel: "10 صور بتحكي أجمل قصة 💜",
+                counterLabel: "صور بتحكي أجمل قصة بتفاصيلها 💜",
                 coverSvg: `<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="200" fill="#141221"/><g transform="rotate(-8 138 100)"><rect x="92" y="34" width="96" height="126" rx="6" fill="#f8fafc"/><rect x="100" y="42" width="80" height="84" fill="#a855f7"/><text x="140" y="92" text-anchor="middle" font-size="28">💜</text></g><g transform="rotate(7 262 100)"><rect x="212" y="34" width="96" height="126" rx="6" fill="#f8fafc"/><rect x="220" y="42" width="80" height="84" fill="#ec4899"/><text x="260" y="92" text-anchor="middle" font-size="28">📸</text></g></svg>`,
                 slides: [
                     { title: "Polaroid 01 • أول صورة سوا", text: "بداية الألبوم اللي كل صورة فيه ليها روح.", icon: "📷💜" },
@@ -2232,7 +2422,7 @@
                 category: "wedding",
                 catLabel: "💍 دعوات أفراح وخطوبة",
                 viewMode: "slider",
-                viewBadge: "🔒 دعوة خطوبة خاصة بباسورد",
+                viewBadge: "🔒 دعوة خطوبة خاصة تفاعلية",
                 password: "love",
                 passHint: "جرّب الباسورد: love (نقدر نعمل دعوة خاصة للعيلة والأصدقاء)",
                 title: "دعوة خطوبة وقراءة فاتحة تفاعلية (Engagement)",
@@ -2241,7 +2431,7 @@
                 accent: "#f472b6",
                 counterDate: "2026-08-15T19:00:00",
                 counterLabel: "حفل خطوبتنا — 15 أغسطس 2026 💍",
-                coverSvg: `<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="200" fill="#180e21"/><text x="200" y="96" text-anchor="middle" font-size="48">💍🌸✨</text><text x="200" y="152" text-anchor="middle" fill="#fbcfe8" font-size="12" font-weight="900">ENGAGEMENT E-CARD • 10 SLIDES</text></svg>`,
+                coverSvg: `<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg"><rect width="400" height="200" fill="#180e21"/><text x="200" y="96" text-anchor="middle" font-size="48">💍🌸✨</text><text x="200" y="152" text-anchor="middle" fill="#fbcfe8" font-size="12" font-weight="900">ENGAGEMENT E-INVITATION</text></svg>`,
                 slides: [
                     { title: "01 • تمت بحمد الله قراءة الفاتحة", text: "فرحتنا بتكبر بوجود أغلى الناس حوالينا في بداية مشوارنا.", icon: "🤲💍" },
                     { title: "02 • موعد حفل الخطوبة — 15 أغسطس 2026", text: "الساعة 7:00 مساءً — مستنيينكم تنورونا.", icon: "📅🌸" },
@@ -2279,7 +2469,7 @@
                             ✨ شكل توضيحي مختصر — عند التنفيذ بصوركم وأغانيكم بيكون أحلى بمليون مرة!
                         </div>
                         <div class="demo-actions">
-                            <button class="btn-try" onclick="openDemo(${p.id})">جرّب الـ 10 مشاهد لايف ▶</button>
+                            <button class="btn-try" onclick="openDemo(${p.id})">جرّب الـ أجزاء تفاعلية مخصصة لايف ▶</button>
                             <a href="https://wa.me/201020477993?text=${encodeURIComponent('أهلاً يا مازن، عجبتني فكرة (' + p.title + ') وعايز أنفذ زيها!')}" target="_blank" rel="noopener noreferrer" class="btn-order-sm">اطلب زيه 💬</a>
                         </div>
                     </div>
@@ -2293,7 +2483,7 @@
             renderDemoCards(cat);
         }
 
-        /* 6. منطق المعاينة الحية (يدعم الباسورد + السكرول الطولي + السلايدر + 10 مشاهد) */
+        /* 6. منطق المعاينة الحية (يدعم الباسورد + السكرول الطولي + السلايدر + أجزاء تفاعلية مخصصة) */
         let activeProject = null;
         let activeSlideIdx = 0;
         let counterIntervals = [];
@@ -2312,7 +2502,7 @@
             const shell = document.getElementById('modalShell');
             shell.style.background = activeProject.themeBg;
             shell.style.borderColor = activeProject.accent;
-            document.getElementById('modalHeaderTitle').innerText = `${activeProject.title} (10 مشاهد)`;
+            document.getElementById('modalHeaderTitle').innerText = activeProject.title;
 
             if (activeProject.password) {
                 renderPasswordGate();
@@ -2370,15 +2560,15 @@
             const area = document.getElementById('modalContentArea');
             const disclaimerHtml = `
                 <div class="demo-disclaimer-strip">
-                    ✨ ده نموذج توضيحي مختصر لـ 10 مشاهد — عند التنفيذ بنحط <strong>صوركم الحقيقية، أغانيكم، وأنيميشن سينمائي</strong> والنتيجة النهائية أحلى بمليون مرة!
+                    ✨ معاينة توضيحية للفكرة — التنفيذ الفعلي بيكون مرن حسب قصتك وعدد صورك وتفاصيلك، وبيتنفذ بصوركم وأغانيكم بإخراج أفخم بكتير!
                 </div>
             `;
 
             if (activeProject.viewMode === 'vertical') {
-                /* وضع السكرول الطولي (10 مشاهد تحت بعض بالصور والحكاية) */
+                /* وضع السكرول الطولي (أجزاء تفاعلية مخصصة تحت بعض بالصور والحكاية) */
                 const slidesHtml = activeProject.slides.map((s, idx) => `
                     <div class="v-slide-card">
-                        <span class="v-slide-badge" style="color:${activeProject.accent}">مشهد ${idx + 1} من 10</span>
+                        <span class="v-slide-badge" style="color:${activeProject.accent}">فصل ${idx + 1} من ${activeProject.slides.length}</span>
                         <div style="font-size:42px; margin:6px 0;">${s.icon}</div>
                         <h4 style="font-size:18.5px; font-weight:900; margin-bottom:6px;">${s.title}</h4>
                         <p style="font-size:14.5px; color:#e2e8f0; max-width:540px; margin:0 auto;">${s.text}</p>
@@ -2400,7 +2590,7 @@
                     <div class="demo-stage-body">
                         ${disclaimerHtml}
                         <p style="text-align:center; color:${activeProject.accent}; font-weight:800; font-size:13.5px; margin-bottom:14px;">
-                            ⬇️ انزل بالسكرول لتحت عشان تعيش الـ 10 مشاهد بالكامل ⬇️
+                            ⬇️ اسحب لتحت واستكشف القصة خطوة بخطوة ⬇️
                         </p>
                         <div class="vertical-timeline">${slidesHtml}</div>
                         <div class="demo-stage-controls" style="margin-top:22px;">
@@ -2412,14 +2602,14 @@
                 `;
                 startCounterOnElements('vDays', 'vHours', 'vMins', 'vSecs');
             } else {
-                /* وضع السلايدر التفاعلي (10 سلايدات) */
+                /* وضع السلايدر التفاعلي (أجزاء تفاعلية مخصصةات) */
                 const s = activeProject.slides[activeSlideIdx];
                 const total = activeProject.slides.length;
                 area.innerHTML = `
                     <div class="demo-stage-body slider-stage">
                         ${disclaimerHtml}
                         <div style="font-size:13px; font-weight:900; color:${activeProject.accent}; margin-bottom:10px;">
-                            سلايد ${activeSlideIdx + 1} من ${total}
+                            محطة ${activeSlideIdx + 1} من ${total}
                         </div>
                         <div class="v-slide-card" style="padding:26px 18px;">
                             <div style="font-size:52px; margin-bottom:10px;">${s.icon}</div>
@@ -2438,7 +2628,7 @@
                         <div class="demo-stage-controls">
                             <button class="btn-outline" onclick="prevModalSlide()" ${activeSlideIdx === 0 ? 'disabled style="opacity:0.4;cursor:not-allowed"' : ''}>السابق</button>
                             <button class="btn-primary" style="background:${activeProject.accent}" onclick="nextModalSlide()">
-                                ${activeSlideIdx === total - 1 ? 'إعادة من الأول 🔄' : 'السلايد التالي ✨'}
+                                ${activeSlideIdx === total - 1 ? 'إعادة من الأول 🔄' : 'الجزء التالي ✨'}
                             </button>
                             <a href="https://wa.me/201020477993?text=${encodeURIComponent('أهلاً يا مازن، جربت (' + activeProject.title + ') وعايز أطلب نسخة متفصلة باسمي!')}" target="_blank" rel="noopener noreferrer" class="btn-outline">اطلب نسختك 💬</a>
                         </div>
@@ -2581,7 +2771,7 @@
 
         function updateCustomizerSummary() {
             const occ = document.querySelector('#occGroup .opt-pill.selected')?.dataset.val || 'هدية مخصصة';
-            const st = document.querySelector('#styleGroup .opt-pill.selected')?.dataset.val || '10 مشاهد';
+            const st = document.querySelector('#styleGroup .opt-pill.selected')?.dataset.val || 'عرض تفاعلي مخصص';
             const extras = Array.from(document.querySelectorAll('#extraGroup .opt-pill.selected')).map(el => el.dataset.val);
             const extrasText = extras.length ? extras.join('، ') : 'بدون إضافات إضافية';
 
@@ -2608,59 +2798,147 @@
         }
 
 
-        // تدوير الجمل التعريفية في الشريط العائم وتحديثها حسب القسم الحالي أثناء السكرول
-        const dockPhrases = [
-            "مصمم دعوات أفراح وخطوبة إلكترونية ذكية بدل الكروت الورقية 💍",
-            "قصص حب • ألبومات أصدقاء • أعياد ميلاد • رسايل مقفولة بباسورد 🔒",
-            "هدايا إلكترونية بلينك و QR Code تفتح على أي موبايل فوراً 📲",
-            "تطوير ويب + أنظمة ذكية و إنترنت الأشياء (IT & IoT) ⚙️"
-        ];
-        let dockIdx = 0;
-        let manualSectionOverride = "";
+        
+        // 7. مؤثرات متحركة رومانسية (قلوب وبتلات ورد ناعمة طافية)
+        (function initRomanticPetals() {
+            const layer = document.getElementById('romanticFxLayer');
+            if (!layer) return;
+            const glyphs = ['💗', '🌸', '✨', '🌹', '💕'];
+            const count = window.innerWidth < 600 ? 10 : 18;
+            for (let i = 0; i < count; i++) {
+                const el = document.createElement('span');
+                el.className = 'romantic-petal';
+                el.textContent = glyphs[i % glyphs.length];
+                el.style.left = (Math.random() * 96) + '%';
+                el.style.fontSize = (13 + Math.random() * 10) + 'px';
+                el.style.animationDuration = (9 + Math.random() * 9) + 's';
+                el.style.animationDelay = (Math.random() * 8) + 's';
+                layer.appendChild(el);
+            }
+        })();
 
-        function renderDockMessage() {
-            const el = document.getElementById('dockStatusText');
-            if (!el) return;
-            const prefix = manualSectionOverride ? `${manualSectionOverride}: ` : "EL_Mizo: ";
-            el.innerHTML = `<span>${prefix}</span>${dockPhrases[dockIdx % dockPhrases.length]}`;
+        // 8. رسم QR Code حي تفاعلي على Canvas بناءً على اختيارات العميل
+        function renderLiveQrCode(seedText) {
+            const c = document.getElementById('liveQrCanvas');
+            if (!c) return;
+            const g = c.getContext('2d');
+            const size = 21;
+            const pad = 8;
+            const cell = Math.floor((c.width - pad * 2) / size);
+            g.clearRect(0, 0, c.width, c.height);
+            g.fillStyle = '#fff8fa';
+            g.fillRect(0, 0, c.width, c.height);
+
+            // Hash string to deterministic bits
+            let h = 2166136261;
+            for (let i = 0; i < seedText.length; i++) {
+                h ^= seedText.charCodeAt(i);
+                h = Math.imul(h, 16777619);
+            }
+
+            const isFinder = (r, col) => {
+                const boxes = [[0, 0], [0, size - 7], [size - 7, 0]];
+                return boxes.some(([br, bc]) => r >= br && r < br + 7 && col >= bc && col < bc + 7);
+            };
+            const drawFinder = (br, bc) => {
+                g.fillStyle = '#5c0f2b';
+                g.fillRect(pad + bc * cell, pad + br * cell, cell * 7, cell * 7);
+                g.fillStyle = '#fff8fa';
+                g.fillRect(pad + (bc + 1) * cell, pad + (br + 1) * cell, cell * 5, cell * 5);
+                g.fillStyle = '#e11d62';
+                g.fillRect(pad + (bc + 2) * cell, pad + (br + 2) * cell, cell * 3, cell * 3);
+            };
+
+            for (let r = 0; r < size; r++) {
+                for (let col = 0; col < size; col++) {
+                    if (isFinder(r, col)) continue;
+                    const bit = ((h >>> ((r * 7 + col * 13) % 24)) ^ (r * 31 + col * 17)) & 1;
+                    if (bit) {
+                        g.fillStyle = (r + col) % 4 === 0 ? '#9e1b44' : '#260a16';
+                        g.fillRect(pad + col * cell, pad + r * cell, cell - 0.5, cell - 0.5);
+                    }
+                }
+            }
+            drawFinder(0, 0);
+            drawFinder(0, size - 7);
+            drawFinder(size - 7, 0);
         }
 
-        setInterval(() => {
-            dockIdx++;
-            renderDockMessage();
-        }, 3600);
-
-        const sectionLabelsMap = {
-            "home": "الرئيسية",
-            "why-digital": "مميزات الهدية الإلكترونية",
-            "demos": "معرض الأفكار (10 مشاهد)",
-            "wedding-invites": "دعوات الأفراح والخطوبة",
-            "customizer": "مصمم الفكرة السريع",
-            "faq": "الأسئلة الشائعة",
-            "services": "نظام الشغل والخدمات",
-            "skills": "المهارات التقنية",
-            "contact": "تواصل واطلب الآن"
+        // ربط QR بتحديث ملخص الطلب
+        const origUpdateSummary = updateCustomizerSummary;
+        updateCustomizerSummary = function() {
+            origUpdateSummary();
+            const occ = document.getElementById('sumOcc')?.innerText || '';
+            const st = document.getElementById('sumStyle')?.innerText || '';
+            const ex = document.getElementById('sumExtras')?.innerText || '';
+            renderLiveQrCode('EL_Mizo|' + occ + '|' + st + '|' + ex);
         };
+        updateCustomizerSummary();
 
-        const dockSecObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting && sectionLabelsMap[entry.target.id]) {
-                    manualSectionOverride = sectionLabelsMap[entry.target.id];
-                    renderDockMessage();
-                }
-            });
-        }, { threshold: 0.25 });
-
-        document.querySelectorAll('section[id]').forEach(sec => dockSecObserver.observe(sec));
-
-        // مزامنة زر الصوت في الشريط العائم مع حالة التشغيل
-        const origToggleAmb = toggleAmbienceMusic;
-        toggleAmbienceMusic = function() {
-            origToggleAmb();
-            const dockBtn = document.getElementById('dockAudioBtn');
-            if (dockBtn) {
-                dockBtn.innerHTML = isAmbiencePlaying ? '⏸️ إيقاف' : '🎶 صوت';
+        // 9. مبدل ثيم المعاينة الرومانسية + مشهد شات أو دعوة تفاعلية داخل البوب أب
+        function applyPreviewTheme(mode, btn) {
+            const shell = document.getElementById('modalShell');
+            if (!shell) return;
+            shell.querySelectorAll('.theme-chip-btn').forEach(b => b.classList.remove('active'));
+            if (btn) btn.classList.add('active');
+            if (mode === 'rose') {
+                shell.style.background = 'linear-gradient(160deg, #2b0d1f, #11060d)';
+                shell.style.borderColor = '#e11d62';
+            } else if (mode === 'gold') {
+                shell.style.background = 'linear-gradient(160deg, #261a14, #100b08)';
+                shell.style.borderColor = '#f5c27a';
+            } else {
+                shell.style.background = 'linear-gradient(160deg, #1b0f26, #0b0712)';
+                shell.style.borderColor = '#f9a8d4';
             }
+        }
+
+        function simulateRsvpChoice(btn, label) {
+            const box = btn.closest('.interactive-scene-box');
+            if (!box) return;
+            box.querySelectorAll('.rsvp-pill-btn').forEach(b => b.classList.remove('chosen'));
+            btn.classList.add('chosen');
+            const out = box.querySelector('.rsvp-live-feedback');
+            if (out) out.textContent = 'تم تسجيل اختيارك التجريبي: ' + label;
+        }
+
+        const prevRenderExpEnhanced = renderProjectExperience;
+        renderProjectExperience = function() {
+            prevRenderExpEnhanced();
+            const body = document.querySelector('#modalContentArea .demo-stage-body');
+            if (!body || !activeProject) return;
+
+            const themeBar = document.createElement('div');
+            themeBar.className = 'preview-theme-bar';
+            themeBar.innerHTML = `
+                <span style="font-size:12px; color:#f5c27a; font-weight:800;">ثيم المعاينة:</span>
+                <button type="button" class="theme-chip-btn active" onclick="applyPreviewTheme('rose', this)">🌹 وردي رومانسي</button>
+                <button type="button" class="theme-chip-btn" onclick="applyPreviewTheme('gold', this)">✨ ذهبي ملكي</button>
+                <button type="button" class="theme-chip-btn" onclick="applyPreviewTheme('velvet', this)">💜 مخملي ليلي</button>
+            `;
+            body.insertBefore(themeBar, body.firstChild.nextSibling);
+
+            const sceneBox = document.createElement('div');
+            sceneBox.className = 'interactive-scene-box';
+            if (activeProject.category === 'wedding') {
+                sceneBox.innerHTML = `
+                    <div style="font-size:13px; font-weight:900; color:#f5c27a; margin-bottom:6px;">💌 تجربة تفاعلية للدعوة والمعازيم</div>
+                    <div style="font-size:13px; color:#ffe4ec;">تأكيد حضورك للمناسبة:</div>
+                    <div class="rsvp-action-row">
+                        <button type="button" class="rsvp-pill-btn chosen" onclick="simulateRsvpChoice(this, 'سأحضر بكل تأكيد ✨')">سأحضر بكل تأكيد ✨</button>
+                        <button type="button" class="rsvp-pill-btn" onclick="simulateRsvpChoice(this, 'مبارك مقدماً وسأكون قريباً 💐')">مبارك مقدماً 💐</button>
+                        <button type="button" class="rsvp-pill-btn" onclick="simulateRsvpChoice(this, 'فتح اللوكيشن على الخريطة 📍')">لوكيشن القاعة 📍</button>
+                    </div>
+                    <div class="rsvp-live-feedback" style="margin-top:8px; font-size:12px; color:#fde68a; font-weight:800; text-align:center;">تم تسجيل اختيارك التجريبي: سأحضر بكل تأكيد ✨</div>
+                `;
+            } else {
+                sceneBox.innerHTML = `
+                    <div style="font-size:13px; font-weight:900; color:#f9a8d4; margin-bottom:8px;">💬 محاكاة مشهد حوار لطيف داخل الهدية</div>
+                    <div class="scene-chat-bubble">«فتحت اللينك ومش مصدق إن كل تفاصيلنا وصورنا متجمعة كده بلمسة رقيقة!»</div>
+                    <div class="scene-chat-reply">«عشان اللحظات الحلوة تستاهل تفضل محفوظة بطريقة تليق بيك دايماً 💗»</div>
+                `;
+            }
+            body.appendChild(sceneBox);
         };
 
         renderDemoCards('all');
